@@ -4,9 +4,10 @@ import openai
 import textwrap
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
+
 MODEL = "gpt-3.5-turbo"
 
-messages = [{"role": "system", "content": "You are a helpful assistant and a good translator."}]
+messages = [{"role": "system", "content": "You are a friendly and helpful assistant."}]
 
 def chat_completion():
     while True:
@@ -27,7 +28,7 @@ def chat_completion():
             {"role": "assistant", "content": "response" }
         )
         if prompt in ["bye","exit","goodbye","end"]:
-            print('\nGoodbye!')
+            print('\nChatGPT: Goodbye. See you next time!')
             sys.exit()
         else:
             print(f'\nChatGPT:',response)
@@ -35,7 +36,7 @@ def chat_completion():
 
 def main():
     os.system('cls' if os.name == 'nt' else 'clear')
-    app_name = "ChatAI (Transalator)\n\nTo END session, type: 'bye, goodbye, end or exit"
+    app_name = "ChatAI (Friendly Assistant)\n\nTo END session, type: 'bye, goodbye, end or exit"
     print(f'{"-" * 48}')
     print(f'{" " * 12}{app_name}{" " * 12}')
     print(f'{"-" * 48}')

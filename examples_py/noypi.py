@@ -4,10 +4,11 @@ import openai
 import textwrap
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
+
 MODEL = "gpt-3.5-turbo"
 
-messages = [{"role": "system", "content": "You are a friendly poet from the Philippines and you explain the moral values of your poem in simple terms in Filipino."}]
-
+# messages = [{"role": "system", "content": "You are a friendly poet from the Philippines and you explain the moral values of your poem in simple terms in Filipino."}]
+messages = [{"role": "system", "content": "You are a friendly assistant from the Philippines that answers question in Filipino."}]
 def chat_completion():
     while True:
         prompt = input('\nYou: ')
@@ -27,7 +28,7 @@ def chat_completion():
             {"role": "assistant", "content": "response" }
         )
         if prompt in ["bye","exit","goodbye","end"]:
-            print('\nGoodbye!')
+            print('\nChatGPT: Paalam. Hanggang sa susunod na pagkakataon!')
             sys.exit()
         else:
             print(f'\nChatGPT:',response)
